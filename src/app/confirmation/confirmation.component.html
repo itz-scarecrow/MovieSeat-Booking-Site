@@ -1,0 +1,59 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+<div class="wrapperAlert" style="margin: auto; text-align:center; margin-top: 100px; padding: 10px; margin-bottom: 40px;">
+
+  <div class="contentAlert">
+
+    <div class="topHalf" style="border-radius:17px;">
+
+      <p><svg viewBox="0 0 512 512" width="100" title="check-circle">
+          <path
+            d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" />
+        </svg></p>
+      <h1>Booking Successful</h1>
+
+      <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <div class="bottomHalf">
+      <div class="whole">
+        <div class="first">
+          <h3 style="padding-bottom: 10px; padding-top: 10px;"> User Details </h3>
+          <div class="data">
+            <p>Name: {{data.name}}</p>
+            <p>Email: {{data.email}}</p>
+          </div>
+        </div>
+        <hr style="background-color:white">
+        <div class="second">
+          <h3 style="padding-top: 20px; padding-bottom: 10px;"> Ticket Details </h3>
+          <div class="data">
+            <p> Movie Name: {{data.movieName}}</p>
+            <p>Seats: {{data.seat}}</p>
+          </div>
+          <div class="data">
+            <p>Screening Date: {{data.dob}}</p>
+            <p>Total Price: {{data.totalPrice}} Rs.</p>
+          </div>
+        </div>
+      </div>
+      <button  [routerLink]="['/']" class="btn btn-info">Go Home</button>
+
+    </div>
+
+  </div>
+
+</div>

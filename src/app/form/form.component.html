@@ -1,0 +1,109 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<main id='main' style="margin-top: 130px;">
+    <figure>
+        <form id='survey-form' style="font-weight:bold">
+  <h4 style="text-align: center; padding-top:13px; font-size: 30px; color:#f0a500;">Submit Details</h4>
+            <label id='name-label'>User Name</label>
+            <div class="inputWithIcon inputIconBg">
+                <input type="text" [(ngModel)]="data1" name="your name"placeholder="Your name" class="control" required />
+                <i class="fa fa-user"></i>
+            </div>
+            <label id='email-label'>Email</label>
+            <div class="inputWithIcon inputIconBg">
+                <input type="email" [(ngModel)]="data2" name="your email" id='email' placeholder='email@company.com' class='control' required />
+                <i class="fa fa-envelope"></i>
+            </div>
+            <label id='mobNumber'>Mob. Number</label>
+            <div class="inputWithIcon inputIconBg">
+                <input type="number" id='number' placeholder='+91' name="my_mob" [(ngModel)]="data5" class='control' required/>
+                <i class="fa fa-phone"></i>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label id='gender'>Gender</label>
+                    <div class="input-group">
+                        <input id="gender-male" [(ngModel)]="data3" type="radio" name="gender" value="male" />
+                        <label style="border-radius:10px 0 0 10px;color: black;" for="gender-male">Male</label>
+                        <input id="gender-female" [(ngModel)]="data3" type="radio" name="gender" value="female" />
+                        <label style="border-radius:0 10px 10px 0;color: black;" for="gender-female">Female</label>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <label id='name'>Movie Name</label>
+            <div class="row">
+                <div class="col">
+                    <input type="text"
+                        style="width:100%;outline:none; height:45px;border:1px solid  white;font-weight:bold;border-radius:8px; color:black;padding-left:15px" value={{data.Movie_name}}
+                        disabled />
+                </div>
+            </div>
+            <label id='date' >Screening Date</label>
+            <div class="inputWithIcon inputIconBg">
+                <input type="date" id='date' [(ngModel)]="data4" name="date" class='control' required />
+            </div>
+            <div class="row">
+                <label id='time' style="margin-left: 14px;">Show Timings</label>
+                <div class="input-group-timing">
+                    <input (change)="onChange($event)" id="morning" type="radio" name="timing" value="0" />
+                    <label for="morning" style="border-radius:10px 0 0 10px;color: black;"><span>Morning</span></label>
+                    <input (change)="onChange($event)" id="noon" type="radio" name="timing" value="1" />
+                    <label for="noon" style="color: black;"> <span>Noon</span></label>
+                    <input (change)="onChange($event)" id="evening" type="radio" name="timing" value="2" />
+                    <label for="evening" style="border-radius:0 10px 10px 0; color: black;"> <span>Evening</span></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-half">
+                    <label style="margin-left: 15px;">Seats Required</label>
+                    <div class="input-group">
+                        <div class="col-third" style="margin-left: 15px;">
+                            <input type="number"
+                                style="width: 230px; outline:none; font-weight:bold;height:45px; border:2px solid white;  border-radius:8px;padding-left:15px"
+                                [(ngModel)]="seats" name="seatsReq">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-half">
+                    <label>Seats Available</label>
+                    <div class="input-group">
+                        <div class="col-third">
+                            <input type="number"
+                                style="width: 230px; outline:none; font-weight:bold;height:45px;border:1px solid white;border-radius:8px; color:black;padding-left:15px"
+                                disabled value={{data.Seats[yourModel]-seats}}>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-half">
+                    <label style="margin-left: 15px;">Price Per Ticket(in Rs.)</label>
+                    <div class="input-group">
+                        <div class="col-third" style="margin-left: 15px;">
+                            <input type="number"
+                                style="width: 230px; outline:none;height:45px; font-weight:bold;border:1px solid white;border-radius:8px; color:black;padding-left:15px"
+                                value={{data.Price[yourModel]}} disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-half">
+                    <label>Total Price(in Rs.)</label>
+                    <div class="input-group">
+                        <div class="col-third">
+                            <input type="number"
+                                style="width: 230px; outline:none; height:45px;font-weight:bold; border:1px solid white; border-radius:8px; color:black;padding-left:15px"
+                                value={{seats*data.Price[yourModel]}} disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <button *ngIf="checkValidation();else disable" class="btn" class="submit-form" [routerLink]="['/submit']" [state]="{data: dummy}">Submit</button>
+            <ng-template #disable>
+                <button  style="background-color: wheat;"class="submit-form" disabled>Submit</button>
+            </ng-template>
+        </form>
+    </figure>
+</main>

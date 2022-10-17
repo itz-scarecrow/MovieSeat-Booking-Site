@@ -1,0 +1,133 @@
+p {
+    font-family: Lato;
+  }
+  table {
+    width: 90%;
+    margin: auto;
+    margin-top: 110px;
+    background-color: #36454F;
+    margin-bottom: 40px;
+  }
+  .btn-edit {
+    text-align: right;
+  }
+  h2 {
+    text-align: center;
+    padding-top: 20px;
+  }
+  
+  .table-header {
+    width: 90%;
+    margin: auto;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  
+  .button-add-row {
+    background: #1b9e1b;
+    color: #ffffff;
+  }
+  
+  .button-remove-rows {
+    background: red;
+    color: #ffffff;
+    margin-right: 5px;
+  }
+  
+  .button-remove {
+    color: red;
+  }
+  
+  ::ng-deep .mat-form-field-infix {
+    width: 100% !important;
+  }
+  
+  .form-input {
+    padding-right: 5px;
+  }
+  .mat-snack-bar-container {
+    text-align: center;
+  }
+  .mat-form-field-appearance-fill .mat-form-field-flex{
+    border-radius: 0px;
+    background-color: #36454F;
+  }
+  .ng-tns-c127-0{
+    background-color: #36454F;
+  }
+  .mat-form-field-flex .ng-tns-c127-0{
+     background-color:white;
+  }
+  .mat-form-field-appearance-fill .mat-form-field-flex{
+ background-color: rgba(0,0,0,0);;
+  }
+  mat-paginator{
+    width: 90%;
+    margin: auto;
+    background-color: #36454F;
+    color: white;
+  }
+
+
+  /* <--- Loading Screen---> */
+.center {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #36454F;
+  }
+  .wave {
+	width: 5px;
+	height: 100px;
+	background: linear-gradient(45deg, cyan, #fff);
+	margin: 10px;
+	animation: wave 1s linear infinite;
+	border-radius: 20px;
+  }
+  .wave:nth-child(2) {
+	animation-delay: 0.1s;
+  }
+  .wave:nth-child(3) {
+	animation-delay: 0.2s;
+  }
+  .wave:nth-child(4) {
+	animation-delay: 0.3s;
+  }
+  .wave:nth-child(5) {
+	animation-delay: 0.4s;
+  }
+  .wave:nth-child(6) {
+	animation-delay: 0.5s;
+  }
+  .wave:nth-child(7) {
+	animation-delay: 0.6s;
+  }
+  .wave:nth-child(8) {
+	animation-delay: 0.7s;
+  }
+  .wave:nth-child(9) {
+	animation-delay: 0.8s;
+  }
+  .wave:nth-child(10) {
+	animation-delay: 0.9s;
+  }
+  
+  @keyframes wave {
+	0% {
+	  transform: scale(0);
+	}
+	50% {
+	  transform: scale(1);
+	}
+	100% {
+	  transform: scale(0);
+	}
+  }
+
+
+
+
+
+
+

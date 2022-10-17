@@ -1,0 +1,66 @@
+
+<table mat-table [dataSource]="dataSource" *ngIf="dataSource.data.length>0; else show">
+    <ng-container [matColumnDef]="col.key" *ngFor="let col of columnsSchema">
+        <th mat-header-cell *matHeaderCellDef style="color: white">
+            {{ col.label }}
+        </th>
+        <td mat-cell *matCellDef="let element" style="color: white;">
+            <div [ngSwitch]="col.type" *ngIf="!element.isEdit">
+                <div class="btn-edit" *ngSwitchCase="'isEdit'">
+                    <button mat-button (click)="element.isEdit = !element.isEdit" (click)="valueChange(element)">
+                        Edit
+                    </button>
+                </div>
+                <span *ngSwitchDefault style="text-align: justify; color: white;">
+                    {{ element[col.key] }}
+                </span>
+            </div>
+            <div [ngSwitch]="col.type" *ngIf="element.isEdit">
+                <div class="btn-edit" *ngSwitchCase="'isEdit'">
+                    <button mat-button (click)="element.isEdit = !element.isEdit" (click)="doneChange(element)">
+                        Done
+                    </button>
+                </div>
+                <mat-form-field class="form-input" *ngIf="col.key==='seat'">
+                    <input type="number" matInput (ngModelChange)="element[col.key] = $event"
+                        [ngModel]="element[col.key]" />
+                </mat-form-field>
+                <mat-form-field appearance="fill" *ngIf="col.key==='scrTime'" style="color: white;">
+                    <select matNativeControl (change)="selectedTime($event,element)">
+                        <option value=""></option>
+                        <option *ngFor="let option of times" [value]="option.value" [selected]="index === option.value">
+                            {{ option.viewValue }}</option>
+                    </select>
+                </mat-form-field>
+                <span *ngIf="col.key==='name' || col.key==='movieName'">
+                    {{element[col.key]}}
+                </span>
+                <span *ngIf="col.key==='seatAvl' && index1==index">
+                    {{dataSource.data[useId-1].seatArray[index1]+currSeats-element.seat}}
+                </span>
+                <span *ngIf="col.key==='seatAvl' && index1!=index">
+                    {{dataSource.data[useId-1].seatArray[index1]-element.seat}}
+                </span>
+                <span *ngIf="col.key==='totalPrice'">
+                    {{dataSource.data[useId-1].priceArray[index1]*element.seat}}
+                </span>
+            </div>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<ng-template #show>
+    <div class="center">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+</ng-template>

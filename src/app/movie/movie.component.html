@@ -1,0 +1,59 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alkalami&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div *ngIf="init;else show">
+    <div class="center">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+</div>
+<ng-template #show>
+    <div class="parent-div">
+        <div *ngFor="let a of arr">
+            <div class="wrapper">
+                <div class="main_card">
+                    <div class="card_left">
+                        <div class="card_datails">
+                            <h1 style="margin-left:16px; text-transform: capitalize;">{{a.Movie_name}}</h1>
+                            <div class="card_cat" style="margin-left: 10px;">
+                                <p class="year" style="font-size: 11px;">Category : {{a.Genre}}</p>
+                                <p class="genre" style="font-size: 11px;">Language : {{a.Language}}</p>
+                            </div>
+                            <p class="disc" style="margin-left:13px;">{{a.Description}}</p>
+                            <div class="social-btn" style="margin-left:5px">
+                                <!-- WATCH TRAILER-->
+                                <button>
+                                    <a href={{a.Trailer}} target="_blank" style="color:black"><i
+                                            class="fas fa-play"></i> SEE TRAILER</a>
+                                </button>
+                                <button>
+                                    {{a.Ratings}}<i class="fas fa-star"></i>
+                                </button>
+                                <button>
+                                    <a [routerLink]="['/bookTicket',a.id]" [state]="{data: a}" style="color:black">BOOK
+                                        NOW</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card_right">
+                        <div class="img_container">
+                            <img src={{a.Image}} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
